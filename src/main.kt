@@ -3,12 +3,13 @@ fun main() {
     val menuTitles = listOf("Add student", "Search for student by ID", "Search for students by course", "Quit")
     var running = true
     while (running) {
+        // Using forEach to display the menu - we will cover this in week 6
         menuTitles.forEachIndexed { i, title ->
             println("${i+1}: $title")
         }
-        val input = readln().toInt()
+        val input = readln()
         when (input) {
-            1 -> {
+            "1" -> {
                 println("Enter name:")
                 val name = readln()
                 println("Enter course:")
@@ -21,7 +22,7 @@ fun main() {
                 s.mark = mark
                 university.addStudent(s)
             }
-            2 -> {
+            "2" -> {
                 println("Enter ID:")
                 val id = readln()
                 val student = university.findStudentById(id)
@@ -31,7 +32,7 @@ fun main() {
                     println(student)
                 }
             }
-            3 -> {
+            "3" -> {
                 println("Enter course:")
                 val course = readln()
                 val matchingStudents = university.findStudentsByCourse(course)
@@ -44,7 +45,7 @@ fun main() {
                 }
             }
 
-            4 -> running = false
+            "4" -> running = false
 
             else -> println("Error: invalid option")
         }
