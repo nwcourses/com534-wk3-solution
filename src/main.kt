@@ -18,7 +18,9 @@ fun main() {
                 val id = readln()
                 println("Enter mark:")
                 val mark = readln().toInt()
-                val s = Student(id, name, course)
+                println("Enter student type: (u/m)")
+                val type = readln()
+                val s = if(type=="m") Masters (id, name, course) else Undergraduate(id, name, course)
                 s.mark = mark
                 university.addStudent(s)
             }
